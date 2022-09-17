@@ -4,10 +4,10 @@ from preprocessing.data_preprocessing import *
 from utils.utils import *
 
 if __name__ == "__main__":
-    mlflow.set_tracking_uri("http://127.0.0.1:5000")
+    #mlflow.set_tracking_uri("http://127.0.0.1:5000")
     mlflow.set_experiment("Zindi_experiment")
-    train = pd.read_csv('/work/umojahack-africa-2022-beginner-challenge/train.csv', parse_dates=['Datetime'])
-    inference = pd.read_csv('/work/umojahack-africa-2022-beginner-challenge/test.csv', parse_dates=['Datetime'])
+    train = pd.read_csv('C:/Users/XX/Documents/Data Science/Projects/umojahack-africa-2022-beginner-challenge/train.csv', parse_dates=['Datetime'])
+    inference = pd.read_csv('C:/Users/XX/Documents/Data Science/Projects/umojahack-africa-2022-beginner-challenge/test.csv', parse_dates=['Datetime'])
     train = date_processing(train)
     X = train.drop('Offset_fault', axis='columns')
     y = train.iloc[:,5]
