@@ -12,8 +12,14 @@ if __name__ == "__main__":
     X = train.drop('Offset_fault', axis='columns')
     y = train.iloc[:,5]
     X_train, X_test, y_train, y_test = train_test_split(X,y, random_state=42, test_size=0.2, stratify=y)
-    X_train = missing_values_processing(X_train)
     X_train = outlier_processing(X_train)
+    X_train = missing_values_processing(X_train)
+    X_train = X_train.iloc[:,1:]
+    X_test = X_test.iloc[:,1:]
+    X_test['output'] = y_test
+    X_test.dropna(inplace= True)
+    y_test = X_test['output']
+    X_test = X_test.iloc[:,:-1]
     with mlflow.start_run():
         classifier, train_accuracy, test_accuracy = svm_classifier(X_train, X_test, y_train, y_test)
         y_pred = classifier.predict(y_test)
@@ -91,3 +97,4 @@ if __name__ == "__main__":
         mlflow.log_figure(conf_matrix, "sgd_confusion_matrix.png")
         mlflow.sklearn.log_model(sgd_clf, artifact_path="models")
         mlflow.register_model(sgd_clf, "sgd")
+        
