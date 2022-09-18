@@ -22,3 +22,4 @@ def confusion_matrix(model, X, y):
     figure = plot_confusion_matrix(model, X, y)
     return figure
 
+

@@ -4,6 +4,7 @@ from flask import Flask, request
 import pandas as pd
 import pickle
 
+
 def load_model():
     loaded_model = pickle.load(open('Zindi_Hackathon_Project\deployment\clf.sav', 'rb'))
     return loaded_model

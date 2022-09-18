@@ -97,3 +97,4 @@ if __name__ == "__main__":
         mlflow.log_figure(conf_matrix, "sgd_confusion_matrix.png")
         mlflow.sklearn.log_model(sgd_clf, artifact_path="models")
         mlflow.register_model(sgd_clf, "sgd")
+        

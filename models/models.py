@@ -42,3 +42,4 @@ def sgd_classifier(X_train, X_test, y_train, y_test):
     test_accuracy = sgd_clf.score(X_test,y_test)
     return sgd_clf, train_accuracy, test_accuracy
 
+

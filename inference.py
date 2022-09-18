@@ -3,6 +3,7 @@ import requests
 import pandas as pd
 from preprocessing.data_preprocessing import date_processing
 
+
 def test_processing(data):
     X_test = data.iloc[:,1:]
     X_test.dropna(inplace= True)
